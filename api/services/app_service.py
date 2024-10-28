@@ -84,17 +84,15 @@ class AppService:
         default_dataset_config = app_template.copy() if app_template else None
         if default_dataset_config and "dataset_configs" in default_dataset_config:
             default_dataset_config["dataset_configs"] = self._get_default_dataset_dict(account,default_dataset_config)
-            default_app_config["dataset_configs"] = default_dataset_config["dataset_configs"]
-
         if args.get("dataset_id"):
             default_dataset_config["dataset_configs"]["datasets"] = self._get_dataset_config(args["dataset_id"])
         else:
             default_dataset_config["dataset_configs"] = None
+        default_app_config["dataset_configs"] = default_dataset_config["dataset_configs"]
         if  args.get("pre_prompt"):
             default_app_config["pre_prompt"] = args.get("pre_prompt")
         if args.get("opening_statement"):
             default_app_config["opening_statement"] = args.get("opening_statement")
-        
         app = App(**app_template["app"])
         app.name = args["name"]
         app.description = args.get("description", "")
