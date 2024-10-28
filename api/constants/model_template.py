@@ -165,12 +165,12 @@ default_app_templates = {
                 "retrieval_model": "multiple",
                 "datasets": {
                     "datasets": [
-                        {
-                            "dataset": {
-                                "enabled": True,
-                                "id": ""
-                            }
-                        }
+                        # {
+                        #     "dataset": {
+                        #         "enabled": True,
+                        #         "id": ""
+                        #     }
+                        # }
                     ]
                 }
             },
